@@ -127,7 +127,6 @@ def prepare_training_data(data_folder_path):
         
  
         #build path of directory containing images for current subject subject
-        #sample subject_dir_path = "training-data/s1"
         subject_dir_path = data_folder_path + "/" + dir_name
         #get the images names that are inside the given subject directory
         subject_images_names = os.listdir(subject_dir_path)
@@ -139,8 +138,7 @@ def prepare_training_data(data_folder_path):
             #ignore system files like .DS_Store
             if image_name.startswith("."):
                 continue;
-                #build image path
-                #sample image path = training-data/s1/1.pgm
+            #build image path
             image_path = subject_dir_path + "/" + image_name
             #read image
             image = cv2.imread(image_path)
@@ -184,7 +182,7 @@ def predict(test_img):
     if(i==1):
         #predict the image using our face recognizer 
         label= face_recognizer.predict(face)
-        #calculation of ear aspect ratio
+        #calculation of eye aspect ratio
         ear = blink(img)
         #get name of respective label returned by face recognizer
         label_text = subjects[label]
@@ -205,11 +203,11 @@ if __name__ == '__main__':
     #one list will contain all the faces
     #and the other list will contain respective labels for each face
     print("Preparing data...")
-    faces, labels = prepare_training_data('C:/Users/shahb/Documents/Python Progs openCV/training-data')
+    faces, labels = prepare_training_data('Training_Data_Location')
     print("Data prepared")
     
     detector = dlib.get_frontal_face_detector()
-    predictor = dlib.shape_predictor('C:/Users/shahb/Downloads/blink-detection/shape_predictor_68_face_landmarks.dat')
+    predictor = dlib.shape_predictor('shape_predictor_68_face_landmarks.dat')
     
     #Threshold eye aspect ratio is set to 0.25
     EYE_AR_THRESH = 0.25
