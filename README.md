@@ -6,14 +6,14 @@ First training of face data is done. All the face data is stored in training dat
 On the basis of trained data, face recognition is done.
 On the recognised face, live-photo differentiator is run.
 
-# Header files include
-*scipy
-*imutils
-*time
-*dlib
-*cv2
-*os
-*numpy
+# Header files to be included
+* scipy
+* imutils
+* time
+* dlib
+* cv2
+* os
+* numpy
 
 # Changes need to be done before running code
 In the line 17 of the code, change the name of persons whose image is present in training data
